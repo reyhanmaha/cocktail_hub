@@ -1,0 +1,107 @@
+body{
+    background-color: aliceblue;
+}
+nav{
+    
+}
+.ad{
+    background-color: #8b9bb2;
+    text-align: center;
+}
+.cocktailList{
+
+}
+.sortSec input{
+    border: 1rem;
+    border-style: groove;
+    border-color: aqua;
+}
+.drinks{
+    margin-left: 5rem;
+    text-align: center;
+}
+.card{
+    width: 18rem;
+}
+.drinks img{
+    align-items: center;
+    height: 10rem;
+    width: 10rem;
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+}
+.detailsImg img{
+    height: 25rem;
+    width: 20rem;
+    margin-left: 0.5rem;
+}
+.pt-sans-regular {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+.detailsText{
+    text-align: left;
+}
+.detailsLower{
+    text-align: left;
+    margin-left: 3rem;
+}
+.detailsLower ol{
+    width: 50rem;
+}
+.card{
+    width: 12rem;
+}
+svg{
+    margin-right: 1rem;
+    background-color:gray;
+}
+@media only screen and (max-width: 480px) {
+    body{
+        /*width: 30rem;*/
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .ad{
+        width: 2rem;
+    }
+    .container{
+        width: 100%;
+    }
+    .row{
+        width: 100%;
+    }
+
+    .detailsText{
+        margin-top: 1rem;
+        margin-left: 0.5rem;
+
+    }
+    .d-flex{
+        width: 55%;
+        margin-top: 1rem;
+        margin-left: 0.5rem;
+        
+    }
+
+        /*
+    .detailsImg{
+        width: 10rem;
+    }
+    .drinks{
+        flex-direction: column;
+        width: 24rem;
+    }
+    */
+    .detailsImg img{
+        height: 10rem;
+        width: 10rem;
+        margin-left: 0.5rem;
+    }
+    .detailsLower{
+        margin-left: 0.5rem;
+    }
+}

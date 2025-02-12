@@ -1,0 +1,138 @@
+body{
+    background-color: aliceblue;
+}
+.ad{
+    background-color: #8b9bb2;
+    text-align: center;
+}
+.sofia-regular {
+    font-family: "Sofia", cursive;
+    font-weight: 400;
+    font-size:x-large;
+    font-style: normal;
+  }
+  .pt-sans-regular {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .lato-thin {
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+.sortSec input{
+    border: 1rem;
+    border-style: groove;
+    border-color: aqua;
+    
+}
+.drinks{
+    margin-left: 2rem;
+    text-align: center;
+}
+.drinks img{
+    align-items: center;
+    height: 10rem;
+    width: 10rem;
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+    
+}
+.drinks button{
+    border: none;
+    outline: none;
+    background-color: white;
+    margin-right: 2rem;
+    
+}
+.card{
+    width: 13rem;
+    /*box-shadow: 10px 10px grey;*/
+    box-shadow: 20px 20px 50px rgb(98, 109, 116);
+}
+.card form{
+    
+}
+.card img{
+    object-fit: cover;
+    transition: 0.5s ease-in-out;
+}
+.card::after{
+    
+    position: absolute;
+    inset: 10px;
+    border: 2px solid black;
+    border-radius: inherit;
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+}
+.card:hover img{
+    filter:
+        contrast(200%)
+        /*drop-shadow(8px 8px 10px #76c4ebfd);*/
+        /*brightness(0.4)*/
+}
+.card:hover::after{
+    opacity: 1;
+    inset: 10px;
+}
+.card:hover .card-body p{
+    scale: 1;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+svg{
+    margin-right: 1rem;
+    background-color:gray;
+}
+@media only screen and (max-width: 480px) {
+    body{
+        margin: 0%;
+        padding: 0%;
+        /*width:48rem;*/
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .container{
+        width: 100%;
+    }
+    .ad{
+        width: 2rem; 
+    }
+    .navbar{
+        width: 100%;
+        height: 15rem;
+    }
+    .card{
+        width: 10rem;
+        margin: 0;
+    }
+    .card img{
+        width: 7rem;
+        margin: auto 0;
+    }
+    .drinks{
+        /*width: 30rem;*/
+        width: 100%;
+        margin: auto 0;
+    }
+    .sortSec{
+        width: 100%;
+    }
+    .row{
+        width: 100%;
+    }
+    .navbar-nav{
+        margin-right: 1rem;
+        
+    }
+    .d-flex{
+        width: 55%;
+        margin-top: 1rem;
+        margin-left: 0.5rem;
+        
+    }
+}
