@@ -98,12 +98,12 @@ app.get("/",async (req,res)=>{
             //const response = await axios.request(options);
             //console.log(response.data);
             drinksApiInfo = await axios.request(options);
-            res.render("cocktailsHub/cocktailHomepage",{drinks:drinksApiInfo.data});
+            res.render("cocktailsHub/index",{drinks:drinksApiInfo.data});
         } catch (error) {
             console.error(error);
         }
     try {
-        res.render("cocktailsHub/cocktailHomepage",{drinks:drinksData});
+        res.render("cocktailsHub/index",{drinks:drinksData});
     } catch (error) {
         console.error(error);
     }
@@ -136,7 +136,7 @@ app.post("/cocktailHomepage",async (req,res)=>{
                 }
                 try {
                     //console.log(easyCocktails)
-                    res.render("cocktailsHub/cocktailHomepage", { drinks: easyCocktails });
+                    res.render("cocktailsHub/index", { drinks: easyCocktails });
                 } catch (error) {
                     console.error(error);
                 }
@@ -150,7 +150,7 @@ app.post("/cocktailHomepage",async (req,res)=>{
                     }
                 }
                 try {
-                    res.render("cocktailsHub/cocktailHomepage", { drinks: mediumCocktails });
+                    res.render("cocktailsHub/index", { drinks: mediumCocktails });
                 } catch (error) {
                     console.error(error);
                 }
@@ -166,7 +166,7 @@ app.post("/cocktailHomepage",async (req,res)=>{
             }
         }
         try {
-            res.render("cocktailsHub/cocktailHomepage", { drinks: easyCocktails });
+            res.render("cocktailsHub/index", { drinks: easyCocktails });
         } catch (error) {
             console.error(error);
         }
@@ -178,7 +178,7 @@ app.post("/cocktailHomepage",async (req,res)=>{
             }
         }
         try {
-            res.render("cocktailsHub/cocktailHomepage", { drinks: mediumCocktails });
+            res.render("cocktailsHub/index", { drinks: mediumCocktails });
         } catch (error) {
             console.error(error);
         }
@@ -232,7 +232,7 @@ app.post("/drinkDetails",async (req,res)=>{
         
     }
     if(badSearch){
-        res.render("cocktailsHub/cocktailHomepage",{drinks:drinksData,detailsError:true});    
+        res.render("cocktailsHub/index",{drinks:drinksData,detailsError:true});    
     }
     
 });
