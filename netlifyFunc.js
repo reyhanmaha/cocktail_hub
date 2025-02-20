@@ -1,22 +1,14 @@
-import express from "express";
+import express,{Router} from "express";
+import ServerlessHttp from "serverless-http";
 import bodyParser from "body-parser";
-import path from "path";
 import axios from "axios";
-import pg from "pg";
 import csvParser from "csv-parser";
 import fs from "fs";
 import { info } from "console";
-/*
-const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "Books",
-  password: "postgres123",
-  port: 5432,
-});
 
-db.connect();
-*/
+const api=express();
+const router = Router();
+
 const drinksData=[
     {
         id:1,
@@ -76,16 +68,18 @@ const drinksData=[
         image: "https://static01.nyt.com/images/2023/08/25/multimedia/LH-aperol-spritz-lqbj/LH-aperol-spritz-lqbj-superJumbo.jpg"
       }
 ];
-const port=3000;
-const app=express();
+
+router.get("/hello", (req, res) => res.send("Hello World!"));
+
+api.use("/api/", router);
 let data=[];
-app.use(bodyParser.urlencoded({ extended: true }));
+api.use(bodyParser.urlencoded({ extended: true }));
 
-app.set('view engine', 'ejs');
-app.use(express.static("public"));
-
+api.set('view engine', 'ejs');
+api.use(express.static("public"));
 let drinksApiInfo;
-app.get("/",async (req,res)=>{
+
+api.get("/",async (req,res)=>{
     try {
         const options = {
             method: 'GET',
@@ -109,7 +103,7 @@ app.get("/",async (req,res)=>{
     }
 });
 
-app.post("/cocktailHomepage",async (req,res)=>{
+api.post("/cocktailHomepage",async (req,res)=>{
     let easyCocktails = [];
     let mediumCocktails = [];
     let response;
@@ -191,7 +185,7 @@ app.post("/cocktailHomepage",async (req,res)=>{
     }*/
 });
 
-app.get("/randomCocktail",async (req,res)=>{
+api.get("/randomCocktail",async (req,res)=>{
     try {
         const response = await axios.request(options);
         console.log(response.data);
@@ -201,11 +195,11 @@ app.get("/randomCocktail",async (req,res)=>{
     res.render("cocktailsHub/cocktailHomepage");
 });
 
-app.get("/info",async (req,res)=>{
+api.get("/info",async (req,res)=>{
     res.render("cocktailsHub/cocktailInfo");
 });
 
-app.post("/drinkDetails",async (req,res)=>{
+api.post("/drinkDetails",async (req,res)=>{
     console.log(req.body['drink']);
     let item;
     let badSearch=false;
@@ -237,7 +231,7 @@ app.post("/drinkDetails",async (req,res)=>{
     
 });
 
-app.post("/searchDrink",async (req,res)=>{
+api.post("/searchDrink",async (req,res)=>{
     try {
         let searchResults=[];
         let value;
@@ -284,6 +278,4 @@ app.post("/searchDrink",async (req,res)=>{
     }
 });
 
-app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
-  });
+export const handler = serverless(api);
