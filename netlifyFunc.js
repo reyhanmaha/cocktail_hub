@@ -74,9 +74,10 @@ router.get("/hello", (req, res) => res.send("Hello World!"));
 api.use("/api/", router);
 let data=[];
 api.use(bodyParser.urlencoded({ extended: true }));
-
+/*
 api.set('view engine', 'ejs');
 api.use(express.static("public"));
+*/
 let drinksApiInfo;
 
 api.get("/",async (req,res)=>{
