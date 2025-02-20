@@ -80,7 +80,7 @@ api.use(express.static("public"));
 
 let drinksApiInfo;
 
-api.get("/",async (req,res)=>{
+router.get("/",async (req,res)=>{
     try {
         const options = {
             method: 'GET',
