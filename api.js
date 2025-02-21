@@ -279,6 +279,6 @@ router.post("/searchDrink",async (req,res)=>{
     }
 });
 
-app.use("/api/", router);
+app.use("/.netlify/functions/api", router);
 
-export const handler = serverless(app);
+export const handler = ServerlessHttp(app);

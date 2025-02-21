@@ -1,6 +1,7 @@
 [build]
   command="echo 'default context'"
   publish="dist"
+  functions="functions"
 [functions]
   external_node_modules = ["express"]
   node_bundler = "esbuild"
