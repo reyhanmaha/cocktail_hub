@@ -76,7 +76,7 @@ let data=[];
 router.use(bodyParser.urlencoded({ extended: true }));
 
 router.set('view engine', 'ejs');
-router.use(express.static("public"));
+//router.use(express.static("public"));
 
 let drinksApiInfo;
 
