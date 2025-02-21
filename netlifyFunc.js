@@ -73,14 +73,14 @@ router.get("/hello", (req, res) => res.send("Hello World!"));
 
 
 let data=[];
-api.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser.urlencoded({ extended: true }));
 
-api.set('view engine', 'ejs');
-api.use(express.static("public"));
+router.set('view engine', 'ejs');
+router.use(express.static("public"));
 
 let drinksApiInfo;
 
-api.get("/",async (req,res)=>{
+router.get("/",async (req,res)=>{
     try {
         const options = {
             method: 'GET',
@@ -104,7 +104,7 @@ api.get("/",async (req,res)=>{
     }
 });
 
-api.post("/cocktailHomepage",async (req,res)=>{
+router.post("/cocktailHomepage",async (req,res)=>{
     let easyCocktails = [];
     let mediumCocktails = [];
     let response;
@@ -186,7 +186,7 @@ api.post("/cocktailHomepage",async (req,res)=>{
     }*/
 });
 
-api.get("/randomCocktail",async (req,res)=>{
+router.get("/randomCocktail",async (req,res)=>{
     try {
         const response = await axios.request(options);
         console.log(response.data);
@@ -196,11 +196,11 @@ api.get("/randomCocktail",async (req,res)=>{
     res.render("cocktailsHub/cocktailHomepage");
 });
 
-api.get("/info",async (req,res)=>{
+router.get("/info",async (req,res)=>{
     res.render("cocktailsHub/cocktailInfo");
 });
 
-api.post("/drinkDetails",async (req,res)=>{
+router.post("/drinkDetails",async (req,res)=>{
     console.log(req.body['drink']);
     let item;
     let badSearch=false;
@@ -232,7 +232,7 @@ api.post("/drinkDetails",async (req,res)=>{
     
 });
 
-api.post("/searchDrink",async (req,res)=>{
+router.post("/searchDrink",async (req,res)=>{
     try {
         let searchResults=[];
         let value;
@@ -278,5 +278,7 @@ api.post("/searchDrink",async (req,res)=>{
         console.log(error);
     }
 });
+
 api.use("/api/", router);
+
 export const handler = serverless(api);
