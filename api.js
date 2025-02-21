@@ -6,7 +6,7 @@ import csvParser from "csv-parser";
 import fs from "fs";
 import { info } from "console";
 
-const api=express();
+const app=express();
 const router = Router();
 
 const drinksData=[
@@ -279,6 +279,6 @@ router.post("/searchDrink",async (req,res)=>{
     }
 });
 
-api.use("/api/", router);
+app.use("/api/", router);
 
-export const handler = serverless(api);
+export const handler = serverless(app);
