@@ -73,14 +73,14 @@ router.get("/hello", (req, res) => res.send("Hello World!"));
 
 
 let data=[];
-router.use(bodyParser.urlencoded({ extended: true }));
+api.use(bodyParser.urlencoded({ extended: true }));
 
-router.set('view engine', 'ejs');
-router.use(express.static("public"));
+api.set('view engine', 'ejs');
+api.use(express.static("public"));
 
 let drinksApiInfo;
 
-router.get("/",async (req,res)=>{
+api.get("/",async (req,res)=>{
     try {
         const options = {
             method: 'GET',
