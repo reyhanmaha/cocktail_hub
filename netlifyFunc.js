@@ -71,7 +71,7 @@ const drinksData=[
 
 router.get("/hello", (req, res) => res.send("Hello World!"));
 
-api.use("/api/", router);
+
 let data=[];
 router.use(bodyParser.urlencoded({ extended: true }));
 
@@ -278,5 +278,5 @@ api.post("/searchDrink",async (req,res)=>{
         console.log(error);
     }
 });
-
+api.use("/api/", router);
 export const handler = serverless(api);
